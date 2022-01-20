@@ -1,0 +1,95 @@
+db.product.insert({
+    name:'harry potter'
+    category:'book'
+    price:'500rs'
+})
+
+db.product.insertMany([{
+    name:'ikigai',
+    category:'book',
+    price:'500rs',
+    date:Date()
+},
+{
+    name:'laptop',
+    category:'electronic',
+    price:'50000rs',
+    date:Date()
+},
+{
+    name:'Apple iphone14',
+    category:'SmartPhone',
+    price:'100000rs',
+    date:Date()
+},
+{
+    name:'Rich dad Poor dad',
+    category:'book',
+    price:'200rs',
+    date:Date()
+},
+{
+    name:'Work Table',
+    category:'Furniture',
+    price:'1000rs',
+    date:Date()
+},
+{
+    name:'Plate',
+    category:'crockery',
+    price:'300rs',
+    date:Date()
+},
+{
+    name:'Rick begger',
+    category:'Movie',
+    price:'800rs',
+    date:Date()
+}])
+
+
+db.product.find().pretty()
+
+db.product.find({category:"Movie"}).pretty()
+
+db.product.find().sort({name:1}).pretty()
+
+db.product.find({category:"Movie"}).count()
+
+db.product.find().count()
+
+db.product.find().limit(3)
+
+db.product.find().sort({name:-1}).limit(4)
+
+db.product.find().forEach(function(doc) { print ('ProductName: '+ doc.name) })
+
+db.product.findOne({name:'ikigai'})
+
+db.produt.update({ name:'ikigai'},
+{
+    'name':'ikigai',
+    'category':'Storybook',
+    'price':'550rs',
+    'date':Date()
+})
+
+db.product.update({name:'laptop'},
+{
+    $set:{price: "850Rs"
+}
+})
+
+db.product.update({name: 'laptop'},
+    {
+        $inc:{price: "850"}
+})
+
+db.product.update({name: 'plate'},
+{ $rename:{
+    "name": 'ProductName'
+}})
+
+db.product.updateMany({}, { $rename:{name: "ProductName" }})
+
+db.product.remove({ProductName : 'Plate'})
