@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Jquery Script -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> 
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js"    integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous">
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- <script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous">
+    </script> -->
+   
+   <script>
+        var cnt = 1;
+         var marks = 0;
+         var ans;
+            let Questions = [{
+            Q1:"Question 1 : In which language is Node.js written?",
+            options:["JavaScript","C & C++","CoffeeScript","All of the above"],
+            answer : "All of the above"
+            },
+            {
+            Q1:"Question 2 : Which of the following extension is used to save the Node.js files?",
+            options:[".js",".node",".java",".txt"],
+            answer : ".js"
+            },
+            {
+            Q1:"Question 3 : The Node.js modules can be exposed using :",
+            options:["expose","module","exports","All of the above"],
+            answer : "exports"
+            },
+            {
+            Q1:"Question 4 : Which of the following module is not a built-in node module in NodeJS?",
+            options:["zlib","https","dgram","fsread"],
+            answer : "fsread"
+            },
+            {
+             Q1:"Question 5 : Which of the following template engines can be used with Node.js?",
+            options:["Jade","Vash","Handlebars","All of the above"],
+            answer : "Handlebars"
+            }
+        ];
+
+        $(document).ready(function(){
+        // alert($);
+            console.log("worked");
+            $('#page2').hide();
+            $('#page3').hide();
+            
+            $('#btnstart').on('click',function(){
+                $('#page2').show();
+                $('#page1').hide();
+                $('#page3').hide();
+                showQuestions(Questions,0);
+            })
+
+            $('#btnnext').on('click',function(){
+             if(cnt == 5){
+                $('#page1').hide();
+                $('#page2').hide();
+                $('#page3').show();
+                $('#Marks').text(marks);
+            }
+            else{
+                console.log(cnt);
+                showQuestions(Questions,cnt);
+                cnt++;
+                $('#btnnext').show();
+            }
+            //    showBUttons();
+            //    showQuestions(Questions,cnt);
+            //    cnt++; 
+            })
+
+            $('#btnfinish').on('click',function(){
+                $('#page1').show();
+                $('#page2').hide();
+                $('#page3').hide();
+            })
+          
+        $('#o1').click(function(){
+            var btntxt = $(this).text();
+            console.log(btntxt);
+            console.log(ans);
+            if(btntxt == ans){
+                marks = marks + 1 ;
+            }
+            console.log("Marks :" + marks);
+        });
+
+        $('#o2').click(function(){
+            var btntxt = $(this).text();
+           // var ans = Question[i].answer;
+            console.log(btntxt);
+            console.log(ans);
+            if(btntxt == ans){
+                marks = marks + 1 ;
+            }
+            console.log("Marks :" + marks);
+        });
+    
+        $('#o3').click(function(){
+            var btntxt = $(this).text();
+           // var ans = Question[i].answer;
+            console.log(btntxt);
+            console.log(ans);
+            if(btntxt == ans){
+                marks = marks + 1 ;
+            }
+            console.log("Marks :" + marks);
+        });
+    
+
+        $('#o4').click(function(){
+            var btntxt = $(this).text();
+           // var ans = Question[i].answer;
+            console.log(btntxt);
+            console.log(ans);
+            if(btntxt == ans){
+                marks = marks + 1 ;
+            }
+            console.log("Marks : " + marks);
+        });
+
+     function showQuestions(Question,i){
+        $('#question').text(Question[i].Q1); 
+        $('#o1').text(Question[i].options[0]);
+        $('#o2').text(Question[i].options[1]);
+        $('#o3').text(Question[i].options[2]);
+        $('#o4').text(Question[i].options[3]);
+        ans = Question[i].answer;
+     }
+
+
+})
+</script>
+
+    <title>Quiz App</title>
+  </head>
+  <body>
+
+    <div id = "page1" class="container" style="margin-top: 50px;">
+
+        <div id = "p1" class="row d-flex justify-content-center">
+            <div class = "col-md-8 border p-4 bg-light">
+
+                <div class = "card-body header">
+                   <h2 style="text-align: center;">Quiz App</h2>
+                </div>
+
+                <div class = "card-body">
+                        <h1 style="text-align: center; margin-top: 20px;">Welcome, To the Quiz</h1>
+                </div>
+                <div class="" id = "submit">
+                        <button class="btnstart" id = "btnstart">Start Quiz</button>
+                </div>                   
+            </div>
+        </div>
+    </div>    
+    <div id = "page2" class="container" style="margin-top: 50px;">
+        <div id = "p2" class="row d-flex justify-content-center">
+            <div class = "col-md-8 border p-4 bg-light">
+
+                <div class = "card-body header">
+                   <h2 style="text-align: center;">Quiz App</h2>
+                 </div>
+
+                <div id = "main">
+                    <div class="card-body" style="border-bottom: 1px solid gray;">
+                        <h5 class = "card-text font-weight-bold" id = "question">
+                            Question1 :
+                        </h5>
+                        
+                    </div> 
+                    <div class = "option-container" id = "options">
+                        <button class="option" onclick="" id="o1" >option1</button><br>
+      
+                        <button class="option" id="o2" >option2</button><br>
+                  
+                        <button class="option" id="o3">option3</button><br>
+                  
+                        <button class="option" id="o4">option4</button><br>
+                    </div>
+                    <div class="" id = "submit">
+                        <button class="btn1" id = "btnnext">Next</button>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id = "page3" class="container" style="margin-top: 50px;">
+        <div id = "p3" class="row d-flex justify-content-center">
+            <div class = "col-md-8 border p-4 bg-light">
+
+                <div class = "card-body header">
+                   <h2 style="text-align: center;">Quiz App</h2>
+                 </div>
+
+                <div id = "main">
+                   
+                    <div class = "" id = "">
+                      <h2 style="text-align: center; margin-top: 50px;">Your Result</h2>
+                      <h4 style="text-align: center; margin-top: 30px;">your Scare is <span id = "Marks"></span> out of 5</h4>
+                    </div>
+                    <div class="" id = "submit">
+                        <button class="btnstart" id = "btnfinish">Finish Quiz</button>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,274 @@
+<html>
+
+<head>
+    <style>
+        h1 {
+            text-align: center;
+            color: brown;
+            font-size: 50px;
+        }
+
+        h2 {
+            text-align: center;
+            padding-top: 25px;
+            color: brown;
+            font-size: 30px;
+        }
+
+        h3 {
+            padding-left: 40%;
+            color: brown;
+            font-size: 20px;
+        }
+
+        #btn {
+            background-color: brown;
+            border: none;
+            color: white;
+            padding: 30px 64px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 45%;
+        }
+
+        #btn1,
+        #btn2,
+        #btn3,
+        #btn4,
+        #btn5,#score {
+            background-color: green;
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 0;
+            position: absolute;
+            left: 45%;
+        }
+
+        #first,#second,#third,#fourth,#fifth,#final,#finalScore  {
+            display: none;
+        }
+    </style>
+    <title>The Quiz</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        var ans = ["Chiku", "Virat Kohli"];
+        
+
+        $(document).ready(function () {
+
+            var score=0;
+
+            $("#btn").click(function () {
+                $("#start").hide();
+                $("#first").css({ display: "block" });
+            });
+
+            $("#btn1").click(function () {
+                $("#first").hide();
+                $("#second").css({ display: "block" });
+                
+                var q1=$('input[name="q1"]:checked').val();
+
+                if(jQuery.inArray(q1, ans) !== -1){
+                    console.log("cool");
+                    console.log("cool:"+score);
+                    score++;
+                    console.log("cool1:"+score);
+                }
+            });
+
+            $("#btn2").click(function () {
+                $("#second").hide();
+                $("#third").css({ display: "block" });
+                console.log("q2");
+                var q2=$('input[name="q2"]:checked').val();
+                console.log(q2);
+                if(jQuery.inArray(q2, ans) !== -1){
+                    console.log("well:"+score);
+                    score++;
+                    console.log("kid:"+score);
+                }
+            });
+
+            $("#btn3").click(function () {
+                $("#third").hide();
+                $("#fourth").css({ display: "block" });
+
+                var q3=$('input[name="q3"]:checked').val();
+                console.log(q3);
+                if(jQuery.inArray(q3, ans) !== -1){
+                    console.log("cool:"+score);
+                    score++;
+                    console.log("cool1:"+score);
+                }
+            });
+
+            $("#btn4").click(function () {
+                $("#fourth").hide();
+                $("#fifth").css({ display: "block" });
+
+                var q4=$('input[name="q4"]:checked').val();
+
+                if(jQuery.inArray(q4, ans) !== -1){
+                    score++;
+                }
+            });
+
+            $("#btn5").click(function () {
+                $("#fifth").hide();
+                $("#final").css({ display: "block" });
+
+                var q5=$('input[name="q5"]:checked').val();
+
+                if(jQuery.inArray(q5, ans) !== -1){
+                    score++;
+                    console.log("Final score: "+score);
+                }
+            });
+
+            $("#score").click(function () {
+                $("#final").hide();
+                $("#finalScore").css({ display: "block" });
+                $("#finalScore").html(score)
+            });
+            
+        });
+
+    </script>
+
+</head>
+
+<body bgcolor="lightgreen">
+    <form id="myForm">
+        <div id="start">
+            <h1>Welcome to The Quiz</h1><br><br>
+
+            <button id="btn" type="button">
+                Start
+            </button>
+        </div>
+
+        <div id="first">
+            <h1>Q1</h1><br><br>
+            <h2>
+                What is Nick name of Virat Kohli?
+            </h2>
+            <h3>
+                <input type="radio" name="q1" value="Kohli">
+                <label>Kohli</label><br>
+                <input type="radio" name="q1" value="Chiku">
+                <label>Chiku</label><br>
+                <input type="radio" name="q1" value="VK">
+                <label>VK</label><br>
+            </h3>
+
+            <button id="btn1" type="button">
+                Next
+            </button>
+        </div>
+
+        <div id="second">
+            <h1>Q2</h1><br><br>
+            <h2>
+                Which captain has most Test Double centuries in the world?
+            </h2>
+            <h3>
+                <input type="radio" name="q2" value="Virat Kohli">
+                <label>Virat Kohli</label><br>
+                <input type="radio" name="q2" value="Ricky Ponting">
+                <label>Ricky Ponting</label><br>
+                <input type="radio" name="q2" value="Vivian Richards">
+                <label>Vivian Richards</label><br>
+            </h3>
+
+            <button id="btn2" type="button">
+                Next
+            </button>
+        </div>
+
+
+        <div id="third">
+            <h1>Q3</h1><br><br>
+            <h2>
+                Only Asian captain to win Test series in Australia?
+            </h2>
+            <h3>
+                <input type="radio" name="q3" value="MS Dhoni">
+                <label>MS Dhoni</label><br>
+                <input type="radio" name="q3" value="Rahul Dravid">
+                <label>Rahul Dravid</label><br>
+                <input type="radio" name="q3" value="Virat Kohli">
+                <label>Virat Kohli</label><br>
+            </h3>
+
+            <button id="btn3" type="button">
+                Next
+            </button>
+        </div>
+
+
+        <div id="fourth">
+            <h1>Q4</h1><br><br>
+            <h2>
+                Who has Most centuries as captain?
+            </h2>
+            <h3>
+                <input type="radio" name="q4" value="Sachin Tendulkar">
+                <label>Sachin Tendulkar</label><br>
+                <input type="radio" name="q4" value="Virat Kohli">
+                <label>Virat Kohli</label><br>
+                <input type="radio" name="q4" value="Rahul Dravid">
+                <label>Rahul Dravid</label><br>
+            </h3>
+
+            <button id="btn4" type="button">
+                Next
+            </button>
+        </div>
+
+
+        <div id="fifth">
+            <h1>Q5</h1><br><br>
+            <h2>
+                Who has the most runs in a single season of IPL?
+            </h2>
+            <h3>
+                <input type="radio" name="q5" value="AB Develiers">
+                <label>AB Develiers</label><br>
+                <input type="radio" name="q5" value="Sachin Tendulkar">
+                <label>Sachin Tendulkar</label><br>
+                <input type="radio" name="q5" value="Virat Kohli">
+                <label>Virat Kohli</label><br>
+            </h3>
+
+            <button id="btn5" type="button">
+                Next
+            </button>
+        </div>
+
+        <div id="final">
+            <h1>Results</h1><br><br>
+
+            <button id="score" type="button">
+                Scorecard
+            </button>
+        </div>
+
+        <div id="finalScore">
+            <h1>Final Score is...</h1>
+            <!-- <div ></div> -->
+
+        </div>
+    </form>
+</body>
+</html>
