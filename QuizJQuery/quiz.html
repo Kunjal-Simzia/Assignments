@@ -14,6 +14,13 @@
             color: brown;
             font-size: 30px;
         }
+        #scoreDisp {
+            text-align: center;
+            padding-top: 25px;
+            color: brown;
+            font-size: 100px;
+            display: none;
+        }
 
         h3 {
             padding-left: 40%;
@@ -61,8 +68,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
-        var ans = ["Chiku", "Virat Kohli"];
-        
+        var ans = ["Chiku", "Virat Kohli", "Virat Kohli", "Virat Kohli", "Virat Kohli"];
 
         $(document).ready(function () {
 
@@ -79,24 +85,19 @@
                 
                 var q1=$('input[name="q1"]:checked').val();
 
-                if(jQuery.inArray(q1, ans) !== -1){
-                    console.log("cool");
-                    console.log("cool:"+score);
+                if(q1==ans[0]){
+                    console.log("hereee"+ans[0])
                     score++;
-                    console.log("cool1:"+score);
                 }
             });
 
             $("#btn2").click(function () {
                 $("#second").hide();
                 $("#third").css({ display: "block" });
-                console.log("q2");
                 var q2=$('input[name="q2"]:checked').val();
-                console.log(q2);
-                if(jQuery.inArray(q2, ans) !== -1){
-                    console.log("well:"+score);
+               
+                if(q2==ans[1]){
                     score++;
-                    console.log("kid:"+score);
                 }
             });
 
@@ -106,10 +107,8 @@
 
                 var q3=$('input[name="q3"]:checked').val();
                 console.log(q3);
-                if(jQuery.inArray(q3, ans) !== -1){
-                    console.log("cool:"+score);
+                if(q3==ans[2]){
                     score++;
-                    console.log("cool1:"+score);
                 }
             });
 
@@ -119,7 +118,7 @@
 
                 var q4=$('input[name="q4"]:checked').val();
 
-                if(jQuery.inArray(q4, ans) !== -1){
+                if(q4==ans[3]){
                     score++;
                 }
             });
@@ -130,16 +129,16 @@
 
                 var q5=$('input[name="q5"]:checked').val();
 
-                if(jQuery.inArray(q5, ans) !== -1){
+                if(q5==ans[4]){
                     score++;
-                    console.log("Final score: "+score);
                 }
             });
 
             $("#score").click(function () {
                 $("#final").hide();
                 $("#finalScore").css({ display: "block" });
-                $("#finalScore").html(score)
+                $("#scoreDisp").css({ display: "block" });
+                $("#scoreDisp").html(score)
             });
             
         });
@@ -148,7 +147,7 @@
 
 </head>
 
-<body bgcolor="lightgreen">
+<body bgcolor="lightcyan">
     <form id="myForm">
         <div id="start">
             <h1>Welcome to The Quiz</h1><br><br>
@@ -266,7 +265,8 @@
 
         <div id="finalScore">
             <h1>Final Score is...</h1>
-            <!-- <div ></div> -->
+        </div>
+        <div id="scoreDisp">
 
         </div>
     </form>
