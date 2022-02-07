@@ -1,6 +1,6 @@
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
+  width: 180px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 0; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -24,7 +24,7 @@
 
 /* Style page content */
 .main {
-  margin-left: 160px; /* Same as the width of the sidebar */
+  margin-left: 190px; /* Same as the width of the sidebar */
   padding: 0px 10px;
 }
 
@@ -38,6 +38,7 @@ h4{
   background-color: #f2f2f2;
   position: fixed;
   top: 0;
+  margin-left: -20px;
   width: 100%;
   color: #f2f2f2;
   padding: 14px 16px;
@@ -54,7 +55,7 @@ h4{
     border: 3px solid #00B4CC;
     border-right: none;
     padding: 5px;
-    height: 20px;
+    height: 35px;
     border-radius: 5px 0 0 5px;
     outline: none;
     color: #9DBFAF;
@@ -73,7 +74,7 @@ h4{
   }
 
   h1{
-    padding-top: 50px;
+    padding-top: 70px;
   }
 
   .logout{
@@ -81,7 +82,6 @@ h4{
   border: none;
   color: white;
   padding: 15px 32px;
-  
   text-align: center;
   text-decoration: none;
   display: inline-block;
