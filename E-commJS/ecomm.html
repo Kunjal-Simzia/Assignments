@@ -89,6 +89,9 @@
         </p> -->
 
         <h1><label><b>My Cart : </b> </label><br></h1>
+        <p id="listItems2">
+
+        </p>
     </div>
 
 </body>
@@ -104,6 +107,7 @@
     const pprice = document.getElementById("pprice");
     const listItems = document.getElementById("listItems");
     const btn = document.getElementById("btn");
+    const listItems2 = document.getElementById("listItems2");
 
 
     // console.log("first"+addc);
@@ -117,7 +121,6 @@
         listItems.appendChild(newlabel1);
 
         const p1 = document.createElement("p");
-        // p1.setAttribute("id",id+1);
         const productName = pname.value;
         p1.innerText = productName;
         listItems.appendChild(p1);
@@ -128,7 +131,6 @@
         listItems.appendChild(newlabel2);
 
         const p2 = document.createElement("p");
-        // p2.setAttribute("id",id+1);
         const productDesc = pdesc.value;
         p2.innerText = productDesc;
         listItems.appendChild(p2);
@@ -139,7 +141,6 @@
         listItems.appendChild(newlabel3);
 
         const p3 = document.createElement("p");
-        // p3.setAttribute("id",id+1);
         const productqty = pqty.value;
         p3.innerText = productqty;
         listItems.appendChild(p3);
@@ -150,7 +151,6 @@
         listItems.appendChild(newlabel4);
 
         const p4 = document.createElement("p");
-        // p4.setAttribute("id",id+1);
         const productprice = pprice.value;
         p4.innerText = productprice;
         listItems.appendChild(p4);
@@ -174,6 +174,7 @@
             "productdiscription": productDesc,
             "quantity": productqty,
             "price": productprice,
+            "totalPrice": productprice * productqty
         };
         products.push(product);
         console.log(products)
@@ -181,26 +182,37 @@
 
     function addToCart(pid) {
         let result = products.findIndex(a => a.productID == pid);
-        console.log(products[result]);
+        console.log("pid " + result)
+        // console.log(products[result]);
+        // console.log("CART" + cartItems)
+        // console.log("result" + result)
+        // console.log("cartMap" + cartItems.map(a => a.
+        //     productDesc))
+
+        cartItems.push(products[result]);
+
         console.log(cartItems)
-        console.log("result" + result)
-        console.log("cartMap" + cartItems.map(a => a.
-        productDesc))
-        // console.log("cartItems" + cartItems)
 
-        if (cartItems.findIndex(a => a.productID)!=result) {
-            console.log("Cart is empty")
-            cartItems.push(products[result]);
-        }
-        else {
-            if (cartItems.findIndex(a => a.productID == result)) {
-                alert("Product already added to cart")
+        for (var i in cartItems) {
+            for (var j in cartItems[i]) {
+                var outputLabel = document.createElement("Label");
+                outputLabel.innerHTML = "Product " + (i + 1) + " : ";
+                listItems2.appendChild(outputLabel);
+
+                const output = document.createElement("p");
+                const outputProduct = cartItems[i][j];
+                output.innerText = outputProduct;
+                listItems2.appendChild(output);
+                var br = document.createElement("br");
+                listItems2.appendChild(br);
+                
+                // console.log(" hi " + cartItems[i][j]);
             }
+            var outputLabel1 = document.createElement("Label");
+                outputLabel1.innerHTML = "----------------------------------------------------------------------";
+                listItems2.appendChild(outputLabel1);
         }
-
-        console.log(cartItems.productID)
     }
-
 </script>
 
 </html>
