@@ -44,4 +44,15 @@ router.patch('/:id', async (req, res) => {
     }
 })
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const stud = await Student.findById(req.params.id)
+        console.log(stud)
+        const DelStud = await stud.remove()
+        res.json(DelStud)
+    } catch (err) {
+        res.send('Error' + err)
+    }
+})
+
 module.exports = router
